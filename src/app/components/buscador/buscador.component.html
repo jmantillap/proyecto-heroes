@@ -1,1 +1,11 @@
-
+//text que diga que palabra est buscando
+<h3>{{termino}}</h3>
+//texto en rojo una alerta,  que me va aparecer cuando no se encuentre los resultados.
+<div *ngIf="heroesBusqueda.length==0"  class="alert alert-danger" role="alert">
+    This is a danger alert—check it out!
+</div>
+//implementar el componente de app tarjetas
+<div class="card-columns">
+    <app-heroe-tarjeta [heroe]="heroe" [index]="heroe.idx" *ngFor="let heroe of heroesBusqueda;"  >        
+    </app-heroe-tarjeta>
+</div>

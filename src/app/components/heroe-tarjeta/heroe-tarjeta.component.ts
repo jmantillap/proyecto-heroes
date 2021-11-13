@@ -16,7 +16,7 @@ export class HeroeTarjetaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() index:number=0;
+  @Input() index:number | undefined=0;  
 
   verHeroe(){
     this.router.navigate(['/heroe',this.index])
