@@ -4,7 +4,7 @@ import { Heroe } from '../interfaces/heroe.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class HeroesService {
+export class HeroesService  {
 
   private heroes:Heroe[] = [
     {
@@ -65,4 +65,6 @@ export class HeroesService {
   getHeroes():Heroe[]{
     return this.heroes;
   }
+
+
 }
