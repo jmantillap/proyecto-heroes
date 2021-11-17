@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Heroe } from 'src/app/interfaces/heroe.interface';
 
 @Component({
   selector: 'app-heroe-tarjeta',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class HeroeTarjetaComponent implements OnInit {
 
 
-  @Input() heroe: any={};
+  @Input() heroe: Heroe | any;
 
   constructor(private router:Router) { }
 

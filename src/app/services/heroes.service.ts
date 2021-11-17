@@ -59,12 +59,41 @@ export class HeroesService  {
   ];
 
   constructor() { 
-    console.log('Servicio heroes listo para utilizar');
+    //console.log('Servicio heroes listo para utilizar');
   }
 
   getHeroes():Heroe[]{
     return this.heroes;
   }
+
+  getHeroe(index:number):Heroe{
+    return this.heroes[index];
+  }
+
+  //se debe crear una funcion que busque heroes por un termino (contengan)
+  getHeroesTermino(termino:string):Heroe[]{
+    let heroesBusqueda:Heroe[]=[];
+    this.heroes.forEach((heroe,index) => {        
+        if(heroe.nombre.toLowerCase().includes(termino.toLocaleLowerCase())){
+          heroe.idx=index;
+          heroesBusqueda.push(heroe);
+        }
+    });    
+    return heroesBusqueda
+  }
+
+
+  buscarHeroe(termino: string): Heroe[] {
+    const consulta = this.heroes.map((heroe, index) => {
+          heroe.idx = index
+          return heroe
+    }).filter(heroe => heroe.nombre.toLowerCase().trim().includes(termino.toLowerCase().trim()))
+
+    return consulta
+  }
+
+  
+
 
 
 }

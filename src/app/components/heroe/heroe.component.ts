@@ -1,6 +1,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Heroe } from 'src/app/interfaces/heroe.interface';
 import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class HeroeComponent implements OnInit {
 
-  heroe:any;
+  heroe: Heroe | any;
 
   constructor(private activatedRoute: ActivatedRoute,private _heroesServices:HeroesService) { 
       this.activatedRoute.params.subscribe(params=>{
