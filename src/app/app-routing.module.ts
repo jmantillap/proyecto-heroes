@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'heroes',component:HeroesComponent},
   {path:'heroe/:id',component:HeroeComponent},
   {path:'buscador/:termino',component:BuscadorComponent},
+  {path:'pipes',component:EjemploPipesComponent},  
   {path:'**',pathMatch:'full',redirectTo:"home"},
 
 ];
