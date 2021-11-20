@@ -22,7 +22,7 @@ export class UsuariosService {
     return this.usuario$.asObservable();
   }
 
-  addUsuario(usuario:Usuario){
+  login(usuario:Usuario){
     this.usuario=usuario;
     this.usuario$.next(this.usuario);
   } 

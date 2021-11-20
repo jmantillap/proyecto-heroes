@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/usuario.interface';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
@@ -9,9 +10,12 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class LoginComponent implements OnInit {
 
+
+
+
   usuario: Usuario={
-    nombre:'Javier',
-    apellido:'Mantilla',
+    nombre:'',
+    apellido:'',
   };
 
   constructor(private _usuarioServices:UsuariosService) { }
@@ -23,7 +27,19 @@ export class LoginComponent implements OnInit {
   }
 
   login(){    
-    this._usuarioServices.addUsuario(this.usuario);
+    this._usuarioServices.login(this.usuario);
+  }
+
+  guardar(form: NgForm) {
+    if (form.valid) {     
+      this.usuario.nombre=form.value.nombre;
+      this.usuario.apellido=form.value.apellido;
+      
+      this._usuarioServices.login(this.usuario);
+      //console.log(this.usuario);
+
+      //sessionStorage.setItem('form', JSON.stringify(form.value));      
+    }
   }
 
 }

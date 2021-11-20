@@ -3,6 +3,8 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
 //Componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,16 +16,26 @@ import { NavbarComponent } from './components/share/navbar/navbar.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormularioNgmodelComponent } from './components/formularios/formulario-ngmodel/formulario-ngmodel.component';
 //Services
 import { HeroesService } from './services/heroes.service';
 import { UsuariosService } from './services/usuarios.service';
+import { PaisService } from './services/pais.service';
 //pipes
 import { MayusculasPipe } from './components/pipes/mayusculas.pipe';
 import { ContrasenaPipe } from './components/pipes/contrasena.pipe';
 import { CapitalizarPipe } from './components/pipes/capitalizar.pipe';
 import { DomSeguroPipe } from './components/pipes/dom-seguro.pipe';
+import { PuntoPipe } from './components/pipes/punto.pipe';
+
+//
 import localEs from '@angular/common/locales/es';
 import localFr from '@angular/common/locales/fr';
+
+import { FormsModule } from '@angular/forms';
+
+
+
 
 
 
@@ -45,13 +57,17 @@ registerLocaleData(localFr);
     ContrasenaPipe,
     CapitalizarPipe,
     DomSeguroPipe,
-    LoginComponent
+    LoginComponent,
+    PuntoPipe,
+    FormularioNgmodelComponent,       
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [HeroesService,UsuariosService,
+  providers: [HeroesService,UsuariosService,PaisService,
     {
       provide: LOCALE_ID,
       useValue: 'es'

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Heroe } from 'src/app/interfaces/heroe.interface';
 import { HeroesService } from 'src/app/services/heroes.service';
 
@@ -7,7 +8,7 @@ import { HeroesService } from 'src/app/services/heroes.service';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class HeroesComponent implements OnInit,OnDestroy {
 
   heroes: Heroe[]=[];
 
@@ -20,7 +21,7 @@ export class HeroesComponent implements OnInit {
   };
 
   constructor(private _heroesServices:HeroesService) { }
-
+ 
   ngOnInit(): void {
       //this.heroes=this._heroesServices.getHeroes()
       this._heroesServices.getHeroes().subscribe(heroes=>{
@@ -32,5 +33,12 @@ export class HeroesComponent implements OnInit {
   agregar(){
     this._heroesServices.addHeroe(this.heroe);
   }
+
+  ngOnDestroy(): void {  
+    this._heroesServices.heroes$.unsubscribe();
+    this._heroesServices.heroes$=new  Subject(); 
+    
+  }
+
 
 }

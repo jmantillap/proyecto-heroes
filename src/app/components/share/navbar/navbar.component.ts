@@ -31,4 +31,10 @@ export class NavbarComponent implements OnInit {
     //console.log(termino);
   }
 
+  logout(){    
+    //this._usuarioServices.usuario$.unsubscribe();
+    this.usuario={nombre:'',apellido:''  };
+    this.router.navigate(['/home']);
+  }
+
 }

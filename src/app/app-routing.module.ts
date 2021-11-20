@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
+import { FormularioNgmodelComponent } from './components/formularios/formulario-ngmodel/formulario-ngmodel.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HomeComponent } from './components/home/home.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'buscador/:termino',component:BuscadorComponent},
   {path:'pipes',component:EjemploPipesComponent},  
   {path:'login',component:LoginComponent},  
+  { path: 'form1', component: FormularioNgmodelComponent },
   {path:'**',pathMatch:'full',redirectTo:"home"},
 
 ];

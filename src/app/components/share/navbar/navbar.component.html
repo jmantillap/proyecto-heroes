@@ -24,11 +24,22 @@
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['login']" >Login</a>
           </li>
-        </ul>{{ usuario.nombre }} {{ usuario.apellido }} 
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive='active' [routerLink]="['form1']">Form1</a>
+          </li>
+        </ul>
     </div> 
     <div class="col-md-5 formularioBuscar">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar héroe" #buscarTexto />
         <button (click)="buscarHeroe(buscarTexto.value)" class="btn btn-putline-primary my-2 my-sm-0">Buscar</button>
+    </div>
+    <div class="col-md-2" style="color: #fff">
+      <p> {{ usuario.nombre +' ' + usuario.apellido  | punto:8 }}   </p>
+    </div>
+    <div class="col-md-2" style="color: #fff">
+      
+      <button type="button" class="btn btn-primary" (click)="logout()" >Cerrar Session</button>
+      
     </div>
 
 </nav>
