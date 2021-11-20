@@ -7,20 +7,24 @@ import { registerLocaleData } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
-//Services
-import { HeroesService } from './services/heroes.service';
 import { AboutComponent } from './components/about/about.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
 import { NavbarComponent } from './components/share/navbar/navbar.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
+import { LoginComponent } from './components/login/login.component';
+//Services
+import { HeroesService } from './services/heroes.service';
+import { UsuariosService } from './services/usuarios.service';
+//pipes
 import { MayusculasPipe } from './components/pipes/mayusculas.pipe';
 import { ContrasenaPipe } from './components/pipes/contrasena.pipe';
 import { CapitalizarPipe } from './components/pipes/capitalizar.pipe';
 import { DomSeguroPipe } from './components/pipes/dom-seguro.pipe';
 import localEs from '@angular/common/locales/es';
 import localFr from '@angular/common/locales/fr';
+
 
 
 registerLocaleData(localEs);
@@ -40,17 +44,19 @@ registerLocaleData(localFr);
     MayusculasPipe,
     ContrasenaPipe,
     CapitalizarPipe,
-    DomSeguroPipe
+    DomSeguroPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [HeroesService,
+  providers: [HeroesService,UsuariosService,
     {
       provide: LOCALE_ID,
       useValue: 'es'
-    }],//servicios , inspectores
+    }, 
+  ],//servicios , inspectores
   bootstrap: [AppComponent] //Componente inicial
 })
 export class AppModule { }

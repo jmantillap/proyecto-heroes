@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from 'src/app/interfaces/usuario.interface';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +10,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  usuario: Usuario={
+      nombre:'',
+      apellido:''
+  };
 
-  ngOnInit(): void {
-        
+  //@Input() usuario:Usuario={};
+
+  constructor(private router:Router,private _usuarioServices:UsuariosService) { }
+
+  ngOnInit(): void {        
+        this._usuarioServices.getUsuario().subscribe(usuario=>{
+            this.usuario=usuario;
+        })
   }
 
   buscarHeroe(termino: string){    

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Heroe } from '../interfaces/heroe.interface';
 
 @Injectable({
@@ -6,6 +7,10 @@ import { Heroe } from '../interfaces/heroe.interface';
 })
 export class HeroesService  {
 
+  //observable ciclo de vida infinito o hasta que lo destruyamos
+  //promesas . su ciclo de vida depende del then y catch
+
+/*
   private heroes:Heroe[] = [
     {
       nombre: "Aquaman",
@@ -58,17 +63,37 @@ export class HeroesService  {
     }
   ];
 
+  */
+
+  heroes$ : Subject<Heroe[]>;
+  heroes: Heroe[] = [];
+
+
   constructor() { 
     //console.log('Servicio heroes listo para utilizar');
+    this.heroes$=new  Subject();
   }
 
-  getHeroes():Heroe[]{
-    return this.heroes;
+  getHeroes():Observable< Heroe[]> {
+    return this.heroes$.asObservable();
   }
 
   getHeroe(index:number):Heroe{
     return this.heroes[index];
   }
+
+  addHeroe(heroe: Heroe){
+      this.heroes.push(heroe);
+      this.heroes$.next(this.heroes);
+  }
+
+  // getHeroes():Heroe[]{
+  //   return this.heroes;
+  // }
+
+  // getHeroe(index:number):Heroe{
+  //   return this.heroes[index];
+  // }
 
   //se debe crear una funcion que busque heroes por un termino (contengan)
   getHeroesTermino(termino:string):Heroe[]{

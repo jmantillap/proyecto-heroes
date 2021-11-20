@@ -11,13 +11,26 @@ export class HeroesComponent implements OnInit {
 
   heroes: Heroe[]=[];
 
+  heroe: Heroe={
+    nombre: "Aquaman",
+    bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.",
+    img: "assets/img/aquaman.png",
+    aparicion: "1941-11-01",
+    casa:"DC"
+  };
+
   constructor(private _heroesServices:HeroesService) { }
 
   ngOnInit(): void {
-    this.heroes=this._heroesServices.getHeroes()
-    //console.log('Ejecutando ngOnInit()');
-    //console.log(this.heroes);
+      //this.heroes=this._heroesServices.getHeroes()
+      this._heroesServices.getHeroes().subscribe(heroes=>{
+          this.heroes=heroes;
+      });
+    
   }
 
+  agregar(){
+    this._heroesServices.addHeroe(this.heroe);
+  }
 
 }

@@ -6,6 +6,7 @@ import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'heroe/:id',component:HeroeComponent},
   {path:'buscador/:termino',component:BuscadorComponent},
   {path:'pipes',component:EjemploPipesComponent},  
+  {path:'login',component:LoginComponent},  
   {path:'**',pathMatch:'full',redirectTo:"home"},
 
 ];

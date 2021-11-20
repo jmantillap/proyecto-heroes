@@ -1,10 +1,14 @@
-<h1>Heroes <small>Narvel y DC</small></h1>
+<h1>Heroes <small>Marvel y DC</small></h1>
 <div class="card-columns">
-    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"  ></app-heroe-tarjeta>
+    <button type="button" class="btn btn-primary" (click)="agregar()" >Agregar</button>
+    
+    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"  ></app-heroe-tarjeta>    
+    
+    
 </div>
 
 
-<!-- <div class="card-columns" *ngFor="let her of heroes">
+<!-- <div class="card- (click)="agregar" columns" *ngFor="let her of heroes">
     <div class="card animated fadeIn fast" >
         <img class="card-img-top img-fluid" [src]="her.img" [alt]="her.nombre" />
         <div class="card-body">

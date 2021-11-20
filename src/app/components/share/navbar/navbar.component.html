@@ -21,7 +21,10 @@
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['pipes']" >Pipes</a>
           </li>
-        </ul>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['login']" >Login</a>
+          </li>
+        </ul>{{ usuario.nombre }} {{ usuario.apellido }} 
     </div> 
     <div class="col-md-5 formularioBuscar">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar héroe" #buscarTexto />
