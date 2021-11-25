@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { HeroeComponent } from './components/heroe/heroe.component';
 import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormularioNgmodelComponent } from './components/formularios/formulario-ngmodel/formulario-ngmodel.component';
+import { FormulariosReactivosComponent } from './components/formularios/formularios-reactivos/formularios-reactivos.component';
+
 //Services
 import { HeroesService } from './services/heroes.service';
 import { UsuariosService } from './services/usuarios.service';
@@ -31,13 +34,6 @@ import { PuntoPipe } from './components/pipes/punto.pipe';
 //
 import localEs from '@angular/common/locales/es';
 import localFr from '@angular/common/locales/fr';
-
-import { FormsModule } from '@angular/forms';
-
-
-
-
-
 
 registerLocaleData(localEs);
 registerLocaleData(localFr);
@@ -59,13 +55,15 @@ registerLocaleData(localFr);
     DomSeguroPipe,
     LoginComponent,
     PuntoPipe,
-    FormularioNgmodelComponent,       
+    FormularioNgmodelComponent,
+    FormulariosReactivosComponent,       
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [HeroesService,UsuariosService,PaisService,
     {

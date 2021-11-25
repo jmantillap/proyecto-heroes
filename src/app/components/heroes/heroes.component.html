@@ -1,10 +1,38 @@
 <h1>Heroes <small>Marvel y DC</small></h1>
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="formGroup" (ngSubmit)="save()">
+            <label for="nombre1"> Nombre </label>
+            <input name="nombre1" type="text" class="form-control" formControlName="nombre1" />
+            <small *ngIf="usuarioNoValido" class="text-danger">
+                Es requerido
+            </small>
+
+            <label for="bio"> Biografia </label>            
+            <textarea name="bio" id="bio" class="form-control" rows="2" formControlName="bio"></textarea>
+            
+            <label for="img"> Imagen ruta </label>
+            <input name="img" type="text" class="form-control" formControlName="img" />
+
+            <label for="aparicion"> Aparicion </label>
+            <input name="aparicion" class="form-control" type="date" formControlName="aparicion" /> 
+
+            <label for="casa"> Casa </label>
+            <input name="casa" type="text" class="form-control" formControlName="casa" />
+            <br/>
+            <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid"> Guardar </button>
+        
+        </form>
+    </div>
+    
+    
+</div>
+
+
+<br/>
 <div class="card-columns">
     <button type="button" class="btn btn-primary" (click)="agregar()" >Agregar</button>
-    
-    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"  ></app-heroe-tarjeta>    
-    
-    
+    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"  ></app-heroe-tarjeta>
 </div>
 
 

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { Heroe } from 'src/app/interfaces/heroe.interface';
 import { HeroesService } from 'src/app/services/heroes.service';
@@ -10,6 +11,8 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class HeroesComponent implements OnInit,OnDestroy {
 
+  formGroup: FormGroup = new FormGroup({});
+
   heroes: Heroe[]=[];
 
   heroe: Heroe={
@@ -20,17 +23,29 @@ export class HeroesComponent implements OnInit,OnDestroy {
     casa:"DC"
   };
 
-  constructor(private _heroesServices:HeroesService) { }
+  constructor(private _heroesServices:HeroesService,private formBuilder: FormBuilder) { }
  
   ngOnInit(): void {
       //this.heroes=this._heroesServices.getHeroes()
       this._heroesServices.getHeroes().subscribe(heroes=>{
           this.heroes=heroes;
       });
+
+      this.buildForm();
     
   }
+  buildForm() {    
+    this.formGroup = this.formBuilder.group({      
+        nombre1: ['', Validators.required],
+        bio: ['', Validators.required],
+        img:['', Validators.required],
+        aparicion:['', Validators.required],
+        casa:['', Validators.required],
+    });
+  } 
 
   agregar(){
+    
     this._heroesServices.addHeroe(this.heroe);
   }
 
@@ -39,6 +54,23 @@ export class HeroesComponent implements OnInit,OnDestroy {
     this._heroesServices.heroes$=new  Subject(); 
     
   }
+  get usuarioNoValido() {
+    return this.nombre1.invalid && this.nombre1.touched;
+  }
+
+  save(){
+      this.heroe.nombre= this.formGroup.value['nombre1']; 
+      this.heroe.bio= this.formGroup.value['bio']; 
+      this.heroe.img= this.formGroup.value['img']; 
+      this.heroe.aparicion= this.formGroup.value['aparicion']; 
+      this.heroe.casa= this.formGroup.value['casa']; 
+      this._heroesServices.addHeroe(this.heroe);
+      this.formGroup.reset({});
+  }
+
+  get nombre1(): AbstractControl { 
+    return this.formGroup.get('nombre1')! 
+  };
 
 
 }
