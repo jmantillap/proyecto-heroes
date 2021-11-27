@@ -44,8 +44,7 @@ export class HeroesComponent implements OnInit,OnDestroy {
     });
   } 
 
-  agregar(){
-    
+  agregar(){    
     this._heroesServices.addHeroe(this.heroe);
   }
 

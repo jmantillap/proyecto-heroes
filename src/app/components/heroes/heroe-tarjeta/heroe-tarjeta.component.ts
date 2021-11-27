@@ -20,7 +20,8 @@ export class HeroeTarjetaComponent implements OnInit {
   @Input() index:number | undefined=0;  
 
   verHeroe(){
-    this.router.navigate(['/heroe',this.index])
+    console.log('Entro');
+    this.router.navigate(['/heroes/heroe/',this.index])
   }
 
 }
