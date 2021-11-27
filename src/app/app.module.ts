@@ -9,12 +9,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
+// import { HeroesComponent } from './components/heroes/heroes.component';
 import { AboutComponent } from './components/about/about.component';
-import { BuscadorComponent } from './components/buscador/buscador.component';
-import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
+// import { BuscadorComponent } from './components/heroes/buscador/buscador.component';
+// import { HeroeTarjetaComponent } from './components/heroes/heroe-tarjeta/heroe-tarjeta.component';
 import { NavbarComponent } from './components/share/navbar/navbar.component';
-import { HeroeComponent } from './components/heroe/heroe.component';
+// import { HeroeComponent } from './components/heroes/heroe/heroe.component';
 import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormularioNgmodelComponent } from './components/formularios/formulario-ngmodel/formulario-ngmodel.component';
@@ -42,12 +42,12 @@ registerLocaleData(localFr);
   declarations: [
     AppComponent,
     HomeComponent,
-    HeroesComponent,
+    // HeroesComponent,
     AboutComponent,
-    BuscadorComponent,
-    HeroeTarjetaComponent,
+    // BuscadorComponent,
+    // HeroeTarjetaComponent,
     NavbarComponent,
-    HeroeComponent,
+    // HeroeComponent,
     EjemploPipesComponent,
     MayusculasPipe,
     ContrasenaPipe,
