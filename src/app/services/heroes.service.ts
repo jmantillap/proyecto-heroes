@@ -86,6 +86,12 @@ export class HeroesService  {
       this.heroes.push(heroe);
       this.heroes$.next(this.heroes);
   }
+  editHeroe(heroe: Heroe,index: number){
+    debugger;
+    this.heroes[index]={...heroe} ;
+    this.heroes$.next(this.heroes);
+
+  }
 
   // getHeroes():Heroe[]{
   //   return this.heroes;

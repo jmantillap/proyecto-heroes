@@ -6,8 +6,7 @@ import { HeroesComponent } from './heroes.component';
 
 const heroesRoutes: Routes = [
   {
-    path: '',
-    // component: HeroesComponent,
+    path: '',    
     children: [      
       {path: '', component: HeroesComponent},
       {path: 'buscar/:termino', component: BuscadorComponent},

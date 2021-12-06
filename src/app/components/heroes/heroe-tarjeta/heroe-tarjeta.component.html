@@ -12,11 +12,11 @@
             <a type="button" 
                [routerLink]="['/heroes/heroe',index]"
                class="btn btn-outline-primary btn-block"> Ver Mas route..
-            </a>
-            <a type="button" 
-               [routerLink]="['/heroe',index]"
-               class="btn btn-outline-primary btn-block"> Editar[pendiente]..
-            </a>    
+            </a>         
+            <button type="button" 
+            (click)="heroeEditar.emit(index)"
+            class="btn btn-outline-primary btn-block"> Editar..
+            </button>       
         </div>
     </div>
     

@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-md-6">
         <form [formGroup]="formGroup" (ngSubmit)="save()">
-            <label for="nombre1"> Nombre </label>
-            <input name="nombre1" type="text" class="form-control" formControlName="nombre1" />
+            <label for="nombre"> Nombre </label>
+            <input name="nombre" type=" text" class="form-control" formControlName="nombre" />
             <small *ngIf="usuarioNoValido" class="text-danger">
                 Es requerido
             </small>
@@ -30,7 +30,7 @@
 <br/>
 <div class="card-columns">
     <button type="button" class="btn btn-primary" (click)="agregar()" >Agregar</button>
-    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"  ></app-heroe-tarjeta>
+    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index" (heroeEditar)="editar($event)" ></app-heroe-tarjeta>
 </div>
 
 
